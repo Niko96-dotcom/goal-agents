@@ -1,0 +1,6 @@
+.DS_Store
+.goal/
+.pi/
+node_modules/
+dist/
+*.tgz

@@ -1,0 +1,19 @@
+{
+  "name": "commandcode-goal",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Codex-style /goal skills for Pi and Command Code, sharing external goal state with Cursor and OpenCode",
+  "type": "module",
+  "scripts": {
+    "build:cli": "npm run build -C \"${OPENCODE_GOAL:-$HOME/Documents/opencode goal}\"",
+    "install:pi": "bash scripts/install-pi-skill.sh --global && bash scripts/install-pi-extension.sh",
+    "install:commandcode": "bash scripts/install-commandcode-skill.sh --global",
+    "install:all": "npm run install:pi && npm run install:commandcode",
+    "test": "bash scripts/e2e-smoke.sh",
+    "test:cli": "bash scripts/e2e-cli-only.sh"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "license": "MIT"
+}

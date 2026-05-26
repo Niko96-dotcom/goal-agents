@@ -1,0 +1,13 @@
+{
+  "name": "pi-goal",
+  "version": "0.1.0",
+  "description": "Codex-style /goal command for Pi using the goal CLI and shared external state",
+  "type": "module",
+  "license": "MIT",
+  "keywords": ["pi-package", "pi-extension", "goal", "codex"],
+  "files": ["extensions", "README.md"],
+  "pi": {
+    "extensions": ["./extensions/goal.ts"],
+    "skills": ["../../skills/pi/goal"]
+  }
+}

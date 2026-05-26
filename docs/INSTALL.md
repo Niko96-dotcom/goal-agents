@@ -1,64 +1,54 @@
 # Install
 
-## 1. Clone this repo
+## One command (recommended)
 
 ```bash
 git clone https://github.com/Niko96-dotcom/goal-agents.git
 cd goal-agents
+npm run install
 ```
 
-## 2. Install the goal CLI
+## What gets installed
 
-**Recommended** (published on npm):
+| Piece | Result |
+|-------|--------|
+| CLI | `goal` and `cursor-goal` on your PATH |
+| Cursor | `~/.cursor/skills/goal` |
+| Pi | `~/.pi/agent/skills/goal` + `pi-goal` extension (`/goal`) |
+| Command Code | `~/.agents/skills/goal` |
+| OpenCode | Separate — see [opencode.md](./opencode.md) |
 
-```bash
-npm install -g cursor-goal
-```
+## CLI install order (`npm run install:cli`)
 
-This installs both `cursor-goal` and `goal` on your PATH.
+1. `npm install -g @nikomohr/goal-cli` (when published)
+2. Else `npm install -g cursor-goal` + symlink `goal` → `cursor-goal`
+3. Else clone [opencode-goal](https://github.com/Niko96-dotcom/opencode-goal), build, `npm install -g ./packages/goal-cli`
 
-**Alternative** — build from [opencode-goal](https://github.com/Niko96-dotcom/opencode-goal):
+## Publish `@nikomohr/goal-cli` to npm (maintainers)
 
 ```bash
 git clone https://github.com/Niko96-dotcom/opencode-goal.git
 cd opencode-goal
-npm install && npm run build
-npm link -C packages/goal-cli
+npm login
+npm run publish:npm
 ```
 
-Or use the helper script from this repo:
+Then everyone can run:
 
 ```bash
-bash scripts/install-cli.sh
+npm install -g @nikomohr/goal-cli
 ```
 
-## 3. Install agent skills / extensions
+## Do not paste shell comments into npm
+
+Bad (can error with `EINVALIDTAGNAME`):
 
 ```bash
-npm run install:all
+npm install -g @nikomohr/goal-cli   # comment here
 ```
 
-Per agent:
-
-| Agent | Command |
-|-------|---------|
-| Cursor | `npm run install:cursor` |
-| Pi | `npm run install:pi` |
-| Command Code | `npm run install:commandcode` |
-| OpenCode | See [opencode.md](./opencode.md) |
-
-## Troubleshooting
-
-### `EINVALIDTAGNAME` / package `"#"`
-
-Do **not** paste comment lines into `npm install`. Run only:
+Good:
 
 ```bash
 npm install -g cursor-goal
 ```
-
-Not `npm install -g @nikomohr/goal-cli` (not published) and not lines containing `#`.
-
-### `goal: command not found`
-
-Install the CLI (step 2) or ensure `$(npm prefix -g)/bin` is on your PATH.

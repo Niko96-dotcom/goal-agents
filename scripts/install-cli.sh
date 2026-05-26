@@ -67,8 +67,8 @@ elif try_github_build && has_cli; then
 else
   echo "error: could not install goal CLI." >&2
   echo "Try manually:" >&2
+  echo "  npm install -g @nikomohr/goal-cli" >&2
   echo "  npm install -g cursor-goal" >&2
-  echo "  # or publish then: npm install -g @nikomohr/goal-cli" >&2
   exit 1
 fi
 

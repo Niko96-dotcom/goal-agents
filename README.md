@@ -26,16 +26,13 @@ npm run install:cli
 Or manually:
 
 ```bash
-npm install -g cursor-goal
+npm install -g @nikomohr/goal-cli
 ```
 
-After we publish the shared package (one-time, from your machine):
+Legacy alias package (also works):
 
 ```bash
-cd opencode-goal   # clone github.com/Niko96-dotcom/opencode-goal
-npm login
-npm run publish:npm
-npm install -g @nikomohr/goal-cli
+npm install -g cursor-goal
 ```
 
 ## Per agent

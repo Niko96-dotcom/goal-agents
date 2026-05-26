@@ -1,5 +1,25 @@
 # Install
 
+## Already cloned? Update first
+
+If `goal-agents` already exists and `npm run install` says **Missing script: "install"**, the folder is an old checkout:
+
+```bash
+cd goal-agents
+git pull origin master
+npm run install
+```
+
+If that fails, replace the folder:
+
+```bash
+cd ~
+mv goal-agents goal-agents.old
+git clone https://github.com/Niko96-dotcom/goal-agents.git
+cd goal-agents
+npm run install
+```
+
 ## One command (recommended)
 
 ```bash

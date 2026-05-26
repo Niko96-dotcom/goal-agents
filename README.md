@@ -10,6 +10,8 @@ One install for **`/goal`** on Cursor, OpenCode, Pi, and Command Code.
 curl -fsSL https://raw.githubusercontent.com/Niko96-dotcom/goal-agents/master/scripts/bootstrap.sh | bash
 ```
 
+Installs to **`~/goal-agents`** (override with `GOAL_AGENTS_DIR=/path`).
+
 Or manually:
 
 ```bash

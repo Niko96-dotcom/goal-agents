@@ -4,9 +4,10 @@ set -euo pipefail
 
 REPO="https://github.com/Niko96-dotcom/goal-agents.git"
 BRANCH="${GOAL_AGENTS_BRANCH:-master}"
-ROOT="${GOAL_AGENTS_DIR:-$(pwd)/goal-agents}"
+# Default ~/goal-agents (not cwd) so curl|bash from any project folder is safe.
+ROOT="${GOAL_AGENTS_DIR:-${HOME}/goal-agents}"
 
-# If already inside a goal-agents checkout, use it.
+# If already inside a goal-agents checkout, use that directory.
 if [[ -f package.json ]] && grep -q '"name": "goal-agents"' package.json 2>/dev/null; then
   ROOT="$(pwd)"
 fi

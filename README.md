@@ -4,16 +4,28 @@ One install for **`/goal`** on Cursor, OpenCode, Pi, and Command Code.
 
 ## Install everything
 
+**Works on a fresh machine or an old folder** (clone, pull, then install):
+
 ```bash
-git clone https://github.com/Niko96-dotcom/goal-agents.git
+curl -fsSL https://raw.githubusercontent.com/Niko96-dotcom/goal-agents/master/scripts/bootstrap.sh | bash
+```
+
+Or manually:
+
+```bash
+git clone https://github.com/Niko96-dotcom/goal-agents.git goal-agents 2>/dev/null \
+  || git -C goal-agents pull origin master
 cd goal-agents
 npm run install
 ```
 
+`npm run install` **pulls latest `goal-agents` first**, then installs CLI + skills.
+
 That runs:
 
-1. **`install:cli`** — installs `goal` + `cursor-goal` (tries npm, then builds from GitHub)
-2. **`install:all`** — installs skills/extensions for Cursor, Pi, Command Code
+1. **git pull** (when this folder is a clone)
+2. **`install:cli`** — `goal` + `cursor-goal` from npm (with fallbacks)
+3. **`install:all`** — skills/extensions for Cursor, Pi, Command Code
 
 OpenCode plugin: [opencode-goal](https://github.com/Niko96-dotcom/opencode-goal) — [docs/opencode.md](docs/opencode.md)
 

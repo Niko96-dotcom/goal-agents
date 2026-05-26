@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "build:cli": "npm run build -C \"${OPENCODE_GOAL:-$HOME/Documents/opencode goal}\"",
-    "install": "bash scripts/install-cli.sh && npm run install:all",
+    "install": "bash scripts/install.sh",
+    "bootstrap": "bash scripts/bootstrap.sh",
     "install:cli": "bash scripts/install-cli.sh",
     "install:cursor": "bash scripts/install-cursor-skill.sh --global",
     "install:pi": "bash scripts/install-pi-skill.sh --global && bash scripts/install-pi-extension.sh",

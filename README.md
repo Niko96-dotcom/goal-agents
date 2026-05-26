@@ -1,25 +1,23 @@
 # goal-agents
 
-Codex-style **`/goal`** for every agent harness in this stack. Shared workspace state (`.goal/current.json`) via [goal-cli](https://github.com/Niko96-dotcom/opencode-goal/tree/main/packages/goal-cli) / `cursor-goal`.
+Codex-style **`/goal`** for Cursor, OpenCode, Pi, and Command Code. Shared goal state via the **`goal`** / **`cursor-goal`** CLI ([cursor-goal on npm](https://www.npmjs.com/package/cursor-goal)).
 
 | Agent | `/goal` | Install from this repo |
 |-------|---------|-------------------------|
-| **Cursor** | `/goal` | `npm run install:cursor` → `~/.cursor/skills/goal` |
-| **OpenCode** | `/goal` (plugin) | [opencode-goal](https://github.com/Niko96-dotcom/opencode-goal) — see [docs/opencode.md](docs/opencode.md) |
-| **Pi** | `/goal` (extension) or `/skill:goal` | `npm run install:pi` → skill + [pi-goal](extensions/pi-goal) |
-| **Command Code** | `/goal` | `npm run install:commandcode` → `~/.agents/skills/goal` |
+| **Cursor** | `/goal` | `npm run install:cursor` |
+| **OpenCode** | `/goal` (plugin) | [opencode-goal](https://github.com/Niko96-dotcom/opencode-goal) — [docs/opencode.md](docs/opencode.md) |
+| **Pi** | `/goal` or `/skill:goal` | `npm run install:pi` |
+| **Command Code** | `/goal` | `npm run install:commandcode` |
+
+Full steps: **[docs/INSTALL.md](docs/INSTALL.md)**
 
 ## Quick install
 
 ```bash
 git clone https://github.com/Niko96-dotcom/goal-agents.git
 cd goal-agents
-
-# Shared CLI (pick one)
-npm install -g @nikomohr/goal-cli
-# or: npm install -g cursor-goal
-
-npm run install:all   # cursor + pi + commandcode skills/extensions
+npm install -g cursor-goal
+npm run install:all
 ```
 
 ## CLI (any project)
@@ -28,18 +26,17 @@ npm run install:all   # cursor + pi + commandcode skills/extensions
 goal "my objective" --verify "npm test"
 goal status
 goal checkpoint --tool-calls 2
-goal pause | resume | clear
 ```
 
 ## Test
 
 ```bash
 npm run test:cli
-npm test                    # + agent smoke (deepseek/deepseek-v4-flash for CC)
+npm test
 GOAL_E2E_SKIP_AGENT=1 npm test
 ```
 
 ## Related repos
 
-- [cursor-goal](https://github.com/Niko96-dotcom/cursor-goal) — Cursor-first CLI + skill source
-- [opencode-goal](https://github.com/Niko96-dotcom/opencode-goal) — goal-core, goal-cli, OpenCode plugin
+- [cursor-goal](https://github.com/Niko96-dotcom/cursor-goal)
+- [opencode-goal](https://github.com/Niko96-dotcom/opencode-goal)

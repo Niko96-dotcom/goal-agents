@@ -2,7 +2,6 @@
 # Resolve goal CLI for smoke tests and skill fallbacks.
 set -euo pipefail
 
-ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 OPENCODE_GOAL="${OPENCODE_GOAL:-$HOME/Documents/opencode goal}"
 GOAL_CLI_DIST="${OPENCODE_GOAL}/packages/goal-cli/dist/index.js"
 
@@ -22,6 +21,10 @@ if command -v goal >/dev/null 2>&1 && cli_works goal; then
   echo "goal"
   exit 0
 fi
+if command -v cursor-goal >/dev/null 2>&1 && cli_works cursor-goal; then
+  echo "cursor-goal"
+  exit 0
+fi
 if [[ -f "$GOAL_CLI_DIST" ]]; then
   wrapper="$(local_goal_wrapper)"
   if cli_works "$wrapper"; then
@@ -29,12 +32,6 @@ if [[ -f "$GOAL_CLI_DIST" ]]; then
     exit 0
   fi
 fi
-  exit 0
-fi
-if command -v cursor-goal >/dev/null 2>&1 && cli_works cursor-goal; then
-  echo "cursor-goal"
-  exit 0
-fi
 
-echo "error: no goal CLI found. Build opencode-goal: cd \"$OPENCODE_GOAL\" && npm run build" >&2
+echo "error: no goal CLI found. Run: npm install -g @nikomohr/goal-cli or build opencode-goal" >&2
 exit 1

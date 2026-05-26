@@ -24,6 +24,7 @@ if [[ ! -f "$OPENCODE_GOAL/packages/goal-cli/dist/index.js" ]]; then
 fi
 
 echo "== install skills + pi extension =="
+bash "$SCRIPT_DIR/install-cursor-skill.sh" --global
 bash "$SCRIPT_DIR/install-pi-skill.sh" --global
 bash "$SCRIPT_DIR/install-pi-extension.sh"
 bash "$SCRIPT_DIR/install-commandcode-skill.sh" --global

@@ -1,19 +1,32 @@
 {
-  "name": "commandcode-goal",
+  "name": "goal-agents",
   "version": "0.1.0",
-  "private": true,
-  "description": "Codex-style /goal skills for Pi and Command Code, sharing external goal state with Cursor and OpenCode",
+  "description": "Codex-style /goal for Cursor, OpenCode, Pi, and Command Code",
   "type": "module",
   "scripts": {
     "build:cli": "npm run build -C \"${OPENCODE_GOAL:-$HOME/Documents/opencode goal}\"",
+    "install:cursor": "bash scripts/install-cursor-skill.sh --global",
     "install:pi": "bash scripts/install-pi-skill.sh --global && bash scripts/install-pi-extension.sh",
     "install:commandcode": "bash scripts/install-commandcode-skill.sh --global",
-    "install:all": "npm run install:pi && npm run install:commandcode",
+    "install:all": "npm run install:cursor && npm run install:pi && npm run install:commandcode",
     "test": "bash scripts/e2e-smoke.sh",
     "test:cli": "bash scripts/e2e-cli-only.sh"
   },
   "engines": {
     "node": ">=22.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Niko96-dotcom/goal-agents.git"
+  },
+  "keywords": [
+    "goal",
+    "cursor",
+    "opencode",
+    "pi",
+    "commandcode",
+    "agent",
+    "codex"
+  ]
 }
